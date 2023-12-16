@@ -1,9 +1,70 @@
----
-
----
-
 <header>
-  <div>
-    <a href="/">kooq</a>
+  <div class="header-container">
+    <h1>cookp@d</h1>
+    <nav>
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/sample">サンプル</a></li>
+        <!-- 他のナビゲーションリンクが必要ならここに追加 -->
+      </ul>
+    </nav>
   </div>
 </header>
+
+<style>
+  /* ヘッダー全体のスタイル */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: fixed; /* ヘッダーを固定 */
+    top: 0; /* ページの上端に固定 */
+    width: 100%; /* 幅を画面全体に */
+    z-index: 1000; /* 他の要素より前面に表示 */
+  }
+
+  /* ヘッダー内のコンテナスタイル */
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ヘッダータイトルのスタイル */
+  header h1 {
+    margin: 0;
+    font-size: 1.5em; /* タイトルのサイズを調整 */
+  }
+
+  /* ナビゲーションリンクのスタイル */
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  header nav ul li {
+    margin-left: 20px;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px; /* リンクのパディングを追加 */
+    transition: background-color 0.3s; /* ホバー時の背景色変更のためのトランジション */
+  }
+
+  header nav ul li a:hover {
+    background-color: #555; /* ホバー時の背景色 */
+    border-radius: 5px; /* リンクの角を丸く */
+  }
+
+  /* スクロール時にヘッダーの下にあるコンテンツが隠れないようにする */
+  body {
+    padding-top: 60px; /* ヘッダーの高さ分のパディングを追加 */
+  }
+</style>

@@ -1,0 +1,199 @@
+<<<<<<< HEAD
+=======
+---
+import Layout from "../components/Layout.astro";
+const dishes = [
+  { name: '北の又三郎', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Fb088afed-7905-4e8e-81cc-86313747bb7e%2Frecipe1.png?table=block&id=3c926e54-db66-4ee8-b9a6-4e004f9c8da5&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'パペットマメット', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Faefb87a5-1faa-4dc2-b52d-51b23474c630%2Frecipe2.png?table=block&id=0bc182e9-27a1-4f3f-b59b-368cddc3db42&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'ドラゴンカーセックス', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F3afc2d3b-2e1b-4e11-ad18-83f6cdda6cb5%2Frecipe3.png?table=block&id=29240159-e18a-454a-afb0-eeb553a59fc6&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: '野菜弁当', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F4565b7b4-5d0c-43b5-9a29-50f644f93587%2Frecipe4.jpg?table=block&id=5f0e4cde-8e26-4d64-8230-6edda888f991&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'ニコラ・テスラ', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F3e988eb6-40ae-4e04-8ade-694ff67c04f5%2Frecipe5.jpg?table=block&id=9e8aa0a4-edb2-4d66-b3ed-8ce3a44dc2f0&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: '星グミ', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Fe45aa327-d040-4c85-85a2-d53c5eea6140%2Frecipe6.jpg?table=block&id=2f8130ee-98bf-41c7-907b-75fb735c9a3e&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: '宇宙グミ', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Fc548cbb5-e4a8-4781-9c0f-c73855336220%2Frecipe7.jpg?table=block&id=789f006e-492c-4b71-99b9-16538da7e9d3&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'ザンギ丼', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F791ce0aa-de00-4d53-94b9-b763832767e6%2Frecipe8.jpg?table=block&id=763f7d6c-37bc-47b4-a59b-d76a481c53be&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'Dish 2', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F212268ff-d94f-4c12-9cd6-e536cbaa1782%2Frecipe9.jpg?table=block&id=bca9fbff-d5b1-4bae-8d0a-9829795e35c3&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'Dish 2', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F65eabc5d-e1aa-41cd-9c6b-8ffbe5d068d7%2Frecipe11.jpg?table=block&id=f178b910-c267-4fa8-b522-44d470f1c46c&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'Dish 1', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2F534ef9c6-78c3-4974-b593-8ec7cd4ed792%2Frecipe12.jpg?table=block&id=b0d37968-4086-4c98-9465-82d9e0aef761&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'Dish 2', imageSrc: 'https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Ff34dfb79-ff28-46f2-86fd-ad2cd2034c76%2Frecipe15.jpg?table=block&id=e81dac83-cddc-4033-ac0c-da9ee95d54db&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  // ...他の料理データ
+];
+---
+
+<Layout>
+  <div class="input-area">
+    <h2>どんな料理を想像していますか？</h2>
+    <p>イメージを入力してください</p>
+    <input type="text" placeholder="料理名を入力" />
+    <button type="button">生成する →</button>
+  </div>
+
+  <article>
+    <div class="dish-grid">
+      {dishes.map(dish => (
+          <div class="dish">
+          <img src={dish.imageSrc} alt={dish.name} />
+          <div class="dish-name">{dish.name}</div>
+          </div>
+      ))}
+    </div>
+  </article>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
+      background-color: #fffff0; /* 薄いオレンジ色の背景 */
+      color: #333; /* 濃い文字色 */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    article {
+          max-width: 1100px;
+          margin: 40px auto;
+          padding: 40px;
+          background-color: #FFFFFF; /* 記事は白背景 */
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+    .input-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background-color: #FFF; /* 背景色白 */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin: 100px auto; /* ページ中央に配置 */
+      width: 80%; /* 幅を適切に設定 */
+      max-width: 1100px; /* 最大幅を設定 */
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* 入力フィールドの内側にパディングを含める */
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .dish-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+
+    .dish {
+    height: 250px; /* `.dish` 要素の高さを固定 */
+    border-radius: 15px;
+    overflow: hidden; /* 余分なコンテンツを隠す */
+    transition: box-shadow 0.3s;
+    /* その他のスタイル */
+}
+
+    .last-in-row {
+        border-right: none;
+    }
+    
+    .dish img {
+    border-radius: 15px;
+    width: 100%; /* 幅をコンテナに合わせる */
+    height: 200px; /* 画像の高さを200pxに固定 */
+    object-fit: cover; /* 画像がコンテナに収まるように調整 */
+    display: block;
+    transition: transform 0.3s;
+    }
+
+
+    .dish:hover {
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .dish-name {
+    font-weight: bold; /* テキストを太字にする */
+    font-size: 20px; /* フォントサイズを調整 */
+    color: #333; /* より濃い色でテキストの可読性を向上 */
+    font-family: 'Lobster', serif;
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden; /* 名前が長い場合にテキストを隠す */
+    text-overflow: ellipsis; /* オーバーフローしたテキストに省略記号を表示 */
+    white-space: nowrap; /* テキストを一行に保つ */
+    }
+
+    @media (max-width: 768px) {
+        .dish-name {
+            font-size: 16px; /* 小さな画面でフォントサイズを小さくする */
+            white-space: normal; /* 小さな画面ではテキストの折り返しを許可 */
+        }
+        .dish {
+        height: 200px; /* タブレットサイズでの高さ調整 */
+        }
+
+        .dish img {
+            height: 150px; /* タブレットサイズでの画像の高さ調整 */
+        }
+        .dish-grid {
+        grid-template-columns: repeat(2, 1fr); /* タブレットサイズで3列に */
+    }
+
+    }
+
+
+    @media (max-width: 480px) {
+        @media (max-width: 480px)
+        .dish {
+                height: 180px; /* スマートフォンサイズでの高さ調整 */
+            }
+
+        .dish img {
+            height: 130px; /* スマートフォンサイズでの画像の高さ調整 */
+        }
+        .dish-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマートフォンサイズで2列に */
+        }
+    }
+  </style>
+</Layout>
+>>>>>>> cf247cf5bf5197bdbdbc86780daf4c39f352d937

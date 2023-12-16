@@ -4,13 +4,23 @@ import Layout from "../components/Layout.astro";
 
 <Layout>
   <div class="input-area">
-    <h2>どんなカーペットを探していますか？</h2>
-    <p>色の強度やイメージを入力してください</p>
-    <input type="text" placeholder="色を選択" />
+    <h2>どんな料理を想像していますか？</h2>
+    <p>イメージを入力してください</p>
+    <input type="text" placeholder="料理名を入力" />
     <button type="button">生成する →</button>
   </div>
 
   <style>
+    body {
+      font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
+      background-color: #fffff0; /* 薄いオレンジ色の背景 */
+      color: #333; /* 濃い文字色 */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
     .input-area {
       display: flex;
       flex-direction: column;
@@ -22,7 +32,7 @@ import Layout from "../components/Layout.astro";
       border-radius: 8px;
       margin: 100px auto; /* ページ中央に配置 */
       width: 80%; /* 幅を適切に設定 */
-      max-width: 600px; /* 最大幅を設定 */
+      max-width: 1000px; /* 最大幅を設定 */
     }
 
     h2 {

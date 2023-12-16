@@ -1,0 +1,31 @@
+---
+
+---
+
+<script>
+  import { apis } from "../utils/apis.ts";
+  import { wrapOAuth } from "../utils/oauth";
+  apis.defa
+    .getPing()
+    .then((res) => console.log("fromt then\n:", res))
+    .catch((e) => console.log(e));
+
+  // apis.oauth
+  //   .getOauthMe()
+  //   .then((res) => console.log("fromt then\n:", res))
+  //   .catch((e) => {
+  //     console.log(e.response);
+  //     if (e.response.status == 401) {
+  //       (async () => {
+  //         const redirectUriRes = await apis.oauth.getOauthRedirectUri();
+  //         sessionStorage.setItem(
+  //           "tempDestination",
+  //           window.location.href.split("?")[0],
+  //         );
+  //         window.location.assign(redirectUriRes.redirectUri);
+  //       })();
+  //     }
+  //   });
+  wrapOAuth(apis.oauth.getOauthMe(), true);
+</script>
+<div>UserCard</div>

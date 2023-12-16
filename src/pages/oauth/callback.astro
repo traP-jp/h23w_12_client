@@ -1,3 +1,29 @@
 ---
 
 ---
+
+<head>
+  <script>
+    import { apis } from "../../utils/apis";
+    const queryString = window.location.search;
+    // クエリ文字列から?を削除して、&で分割
+    const urlParams = new URLSearchParams(queryString);
+    // 特定のクエリパラメータの値を取得
+    const code = urlParams.get("code")! || "";
+    const name = urlParams.get("name");
+    console.log("done");
+    apis.oauth
+      .getOauthCallback({ code: code })
+      .then(async () => {
+        const tempDestination = sessionStorage.getItem("tempDestination");
+        sessionStorage.removeItem("tempDestination");
+        if (tempDestination) {
+          console.log("called");
+          window.location.assign(tempDestination);
+        } else {
+          window.location.assign("https://google.com");
+        }
+      })
+      .catch((e) => console.log(e));
+  </script>
+</head>

@@ -1,0 +1,183 @@
+---
+import Layout from "../components/Layout.astro";
+
+// dictデータ
+const recipeData = {
+    "cooking_name": "オーストラリアとオーストリアの間",
+    "comment": "この料理名は、オーストラリアとオーストリアの融合を感じさせます。オーストラリアの素朴で力強いフレーバーとオーストリア伝統の洗練された味わいを組み合わせた、革新的でユニークな一皿です。",
+    "ingredient": [
+        "カンガルー肉 200g（ステーキ用）",
+        "じゃがいも 2個（細切り）",
+        "レッドビーツ 1個（スライス）",
+        "ブロッコリー 100g",
+        "オーストリア産ホワイトアスパラガス 100g",
+        "パンプキンシード 10g"
+    ],
+    "seasoning": [
+        "オリーブオイル 大さじ2",
+        "りんご酢 大さじ1",
+        "粒マスタード 小さじ1",
+        "塩 適量",
+        "黒こしょう 適量",
+        "ドライタイム 小さじ1/2"
+    ],
+    "instruction": [
+        "カンガルー肉は塩、こしょう、ドライタイムで下味をつけておく。",
+        "じゃがいもは細切りにして、180度の油でカリカリになるまで揚げる。",
+        "ブロッコリーは塩を入れたお湯でさっと茹で、冷水に取っておく。",
+        "オリーブオイルを熱したフライパンでカンガルー肉を両面焼き、中はレアに仕上げる。",
+        "ホワイトアスパラガスは塩を入れたお湯でやわらかく茹でる。",
+        "皿に揚げたじゃがいもを敷き、上にスライスしたレッドビーツ、やわらかく茹でたブロッコリー、ホワイトアスパラガスを配置する。",
+        "最後に焼いたカンガルー肉をスライスして野菜の上に盛り、りんご酢と粒マスタードを混ぜたドレッシングをかけて、パンプキンシードを散らす。"
+    ],
+    "detailed_description": [
+        "A dish that combines Australian vitality with Austrian elegance, presenting a rare kangaroo steak at its center, adorned with deep-fried julienne potatoes, vibrant red beet slices, blanched broccoli, and tender white Austrian asparagus. The plate is dressed with an apple cider vinegar and grain mustard dressing, and sprinkled with crunchy pumpkin seeds to add texture. This represents a cross-cultural culinary experience, served on a sleek, minimalist plate that echoes the sophistication of Austria, while the bold flavors pay homage to the Australian outback."
+    ]
+};
+---
+<Layout>
+    <style>
+        /* 共通のベーススタイル */
+        body {
+          font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
+          background-color: #fffff0; /* 薄いオレンジ色の背景 */
+          color: #333; /* 濃い文字色 */
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      
+        /* 共通のフォームスタイル */
+        form {
+          max-width: 1000px;
+          margin: 40px auto;
+          padding: 20px;
+          background-color: #FFFFFF;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      
+        /* 共通のラベルスタイル */
+        label {
+          display: block;
+          margin-bottom: 10px;
+          color: #666;
+        }
+      
+        /* 共通のテキスト入力スタイル */
+        input[type="text"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+      
+        /* 共通のボタンスタイル */
+        button {
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+      
+        button:hover {
+          background-color: #0056b3;
+        }
+      
+        /* 共通の記事スタイル */
+        article {
+          max-width: 1000px;
+          margin: 40px auto;
+          padding: 40px;
+          background-color: #FFFFFF; /* 記事は白背景 */
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+      
+        /* 共通の見出しスタイル */
+        h1, h2 {
+          color: #333333;
+          margin-bottom: 20px;
+        }
+      
+        h1 {
+          font-size: 2em;
+        }
+      
+        h2 {
+          font-size: 1.5em;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+      
+        /* 共通のパラグラフスタイル */
+        p {
+          line-height: 1.6;
+          color: #666666;
+        }
+      
+        /* 共通のリストスタイル */
+        ul, ol {
+          margin-bottom: 20px;
+        }
+      
+        /* 共通の画像スタイル */
+        article img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
+      
+        /* 共通のリストアイテムスタイル */
+        ul.ingredient-list li, ul.seasoning-list li, ol.instruction-list li {
+          border-bottom: 1px solid #ccc;
+          padding: 8px 0;
+        }
+      
+        /* 最後のリストアイテムにボーダー非表示 */
+        ul.ingredient-list li:last-child,
+        ul.seasoning-list li:last-child,
+        ol.instruction-list li:last-child {
+          border-bottom: none;
+        }
+      
+        /* 手順番号（マーカー）のスタイルを太文字に */
+        ol.instruction-list li::marker {
+          font-weight: bold;
+        }
+      </style>
+      
+      
+    <article>
+        <img src=https://th.bing.com/th/id/OIP.X6BuDJTMU_vFDTWD9p-HiAHaHa?rs=1&pid=ImgDetMain />
+        <h1>{recipeData.cooking_name}</h1>
+        <p>{recipeData.comment}</p>
+      
+        <h2>材料 2人前</h2>
+        <ul class="ingredient-list">
+            {recipeData.ingredient.map(item => (
+              <li>{item}</li>
+            ))}
+        </ul>
+      
+        <h2>調味料 2人前</h2>
+        <ul class="seasoning-list">
+          {recipeData.seasoning.map(item => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      
+        <h2>作り方</h2>
+        <ol class="instruction-list">
+          {recipeData.instruction.map(step => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </article>
+</Layout>

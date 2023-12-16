@@ -1,0 +1,130 @@
+---
+import Layout from "../components/Layout.astro";
+const dishes = [
+  { name: 'adsfafjkfはフィオdfdfじゃkdファfdfじゃdsフォアfjdfjfjaf', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+];
+---
+<Layout>
+    <article>
+        <div class="dish-grid">
+        {dishes.map((dish, index) => (
+            <div class={`dish ${index % 4 === 3 ? 'last-in-row' : ''}`}>
+            <img src={dish.imageSrc} alt={dish.name} />
+            <div class="dish-name">{dish.name}</div>
+            </div>
+        ))}
+        </div>
+    </article>
+
+    <style>
+    article {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #FFFFFF; /* 記事は白背景 */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+    font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
+    background-color: #fffff0; /* 薄いオレンジ色の背景 */
+    color: #333; /* 濃い文字色 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    .dish-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+
+    .dish {
+    height: 250px; /* `.dish` 要素の高さを固定 */
+    border-radius: 15px;
+    overflow: hidden; /* 余分なコンテンツを隠す */
+    transition: box-shadow 0.3s;
+    /* その他のスタイル */
+}
+
+    .last-in-row {
+        border-right: none;
+    }
+    
+    .dish img {
+    width: 100%; /* 幅をコンテナに合わせる */
+    height: 200px; /* 画像の高さを200pxに固定 */
+    object-fit: cover; /* 画像がコンテナに収まるように調整 */
+    display: block;
+    transition: transform 0.3s;
+    }
+
+
+    .dish:hover {
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .dish-name {
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden; /* 名前が長い場合にテキストを隠す */
+    text-overflow: ellipsis; /* オーバーフローしたテキストに省略記号を表示 */
+    white-space: nowrap; /* テキストを一行に保つ */
+    }
+
+    @media (max-width: 768px) {
+        .dish-name {
+            font-size: 16px; /* 小さな画面でフォントサイズを小さくする */
+            white-space: normal; /* 小さな画面ではテキストの折り返しを許可 */
+        }
+        .dish {
+        height: 200px; /* タブレットサイズでの高さ調整 */
+        }
+
+        .dish img {
+            height: 150px; /* タブレットサイズでの画像の高さ調整 */
+        }
+        .dish-grid {
+        grid-template-columns: repeat(2, 1fr); /* タブレットサイズで3列に */
+    }
+
+    }
+
+
+    @media (max-width: 480px) {
+        @media (max-width: 480px)
+        .dish {
+                height: 180px; /* スマートフォンサイズでの高さ調整 */
+            }
+
+        .dish img {
+            height: 130px; /* スマートフォンサイズでの画像の高さ調整 */
+        }
+        .dish-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマートフォンサイズで2列に */
+        }
+    }
+    </style>
+</Layout>

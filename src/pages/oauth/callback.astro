@@ -21,7 +21,7 @@
           console.log("called");
           window.location.assign(tempDestination);
         } else {
-          window.location.assign("https://google.com");
+          window.location.assign(window.location.origin);
         }
       })
       .catch((e) => console.log(e));

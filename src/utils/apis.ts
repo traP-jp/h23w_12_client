@@ -1,4 +1,10 @@
-import { BaseAPI, Configuration, DefaultApi, OauthApi } from "../fetch-apis";
+import {
+  BaseAPI,
+  Configuration,
+  DefaultApi,
+  DishApi,
+  OauthApi,
+} from "../fetch-apis";
 
 const conf = new Configuration({
   basePath: import.meta.env.PUBLIC_API_BASE_URL,
@@ -9,4 +15,5 @@ export const apis = {
   base: new BaseAPI(conf),
   defa: new DefaultApi(conf),
   oauth: new OauthApi(conf),
+  dish: new DishApi(conf),
 };

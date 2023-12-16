@@ -1,5 +1,14 @@
 ---
 import Layout from "../components/Layout.astro";
+const dishes = [
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+  // ...他の料理データ
+];
 ---
 
 <Layout>
@@ -10,6 +19,17 @@ import Layout from "../components/Layout.astro";
     <button type="button">生成する →</button>
   </div>
 
+  <article>
+    <div class="dish-grid">
+      {dishes.map(dish => (
+          <div class="dish">
+          <img src={dish.imageSrc} alt={dish.name} />
+          <div class="dish-name">{dish.name}</div>
+          </div>
+      ))}
+    </div>
+  </article>
+
   <style>
     body {
       font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
@@ -19,6 +39,15 @@ import Layout from "../components/Layout.astro";
       padding: 0;
       box-sizing: border-box;
     }
+    
+    article {
+          max-width: 1100px;
+          margin: 40px auto;
+          padding: 40px;
+          background-color: #FFFFFF; /* 記事は白背景 */
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
 
     .input-area {
@@ -32,7 +61,7 @@ import Layout from "../components/Layout.astro";
       border-radius: 8px;
       margin: 100px auto; /* ページ中央に配置 */
       width: 80%; /* 幅を適切に設定 */
-      max-width: 1000px; /* 最大幅を設定 */
+      max-width: 1100px; /* 最大幅を設定 */
     }
 
     h2 {
@@ -70,6 +99,52 @@ import Layout from "../components/Layout.astro";
 
     button:hover {
       background-color: #0056b3;
+    }
+
+
+    .dish-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .dish {
+        border: 1px solid #e0e0e0;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+    .dish img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s;
+    }
+
+    .dish:hover {
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .dish-name {
+        padding: 10px;
+        text-align: center;
+        background-color: #ffffff;
+        font-size: 18px;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+        .dish-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .dish-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
   </style>
 </Layout>

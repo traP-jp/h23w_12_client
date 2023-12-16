@@ -14,7 +14,7 @@ import Layout from "../components/Layout.astro";
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
-      { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
+    { name: 'Dish 1', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
     { name: 'Dish 2', imageSrc: 'https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg' },
@@ -34,8 +34,7 @@ import Layout from "../components/Layout.astro";
         <a href="/looking" class="button">メニューを見る</a>
       </div>
       <!-- 他のコンテンツもここに追加できます -->
-    </div>
-    <!-- ...他のHTML要素 -->
+    </div><!-- ...他のHTML要素 -->
   </body>
   <div class="dish-grid">
     {dishes.map(dish => (
@@ -44,8 +43,19 @@ import Layout from "../components/Layout.astro";
       </div>
     ))}
   </div>
+
   
-  <style>
+  
+  <style>    
+
+    body {
+      font-family: 'Roboto', sans-serif; /* モダンなフォントを使用 */
+      background-color: #fffff0; /* 薄いオレンジ色の背景 */
+      color: #333; /* 濃い文字色 */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     .dish-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -55,10 +65,10 @@ import Layout from "../components/Layout.astro";
     .dish {
       border: 1px solid #ccc;
       border-radius: 8px;
-      height: 200px; /* 画像の高さを設定 */
+      height: 200px;
       background-size: cover;
       background-position: center;
-      position: relative; /* 子要素の位置を調整するために必要 */
+      position: relative;
       overflow: hidden;
     }
     .dish-name {

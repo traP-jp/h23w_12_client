@@ -27,8 +27,8 @@ export const RecipePreviewMock: React.FC<RecipePreviewProps> = (props) => {
 
       <h2>調味料 2人前</h2>
       <ul className={styles.seasoning_list}>
-        {props.seasoning.map((item) => (
-          <li>{item}</li>
+        {props.seasoning.map((item, i) => (
+          <li key={i}>{item}</li>
         ))}
       </ul>
 

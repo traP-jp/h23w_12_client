@@ -17,6 +17,9 @@ import {
   type HTTPValidationError,
   HTTPValidationErrorFromJSON,
   HTTPValidationErrorToJSON,
+  type ImageResponse,
+  ImageResponseFromJSON,
+  ImageResponseToJSON,
 } from "../models";
 
 export interface GetDishRequest {
@@ -33,7 +36,7 @@ export class DishApi extends runtime.BaseAPI {
   async getDishRaw(
     requestParameters: GetDishRequest,
     initOverrides?: RequestInit | runtime.InitOverideFunction,
-  ): Promise<runtime.ApiResponse<void>> {
+  ): Promise<runtime.ApiResponse<ImageResponse>> {
     if (requestParameters.id === null || requestParameters.id === undefined) {
       throw new runtime.RequiredError(
         "id",
@@ -58,7 +61,9 @@ export class DishApi extends runtime.BaseAPI {
       initOverrides,
     );
 
-    return new runtime.VoidApiResponse(response);
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      ImageResponseFromJSON(jsonValue),
+    );
   }
 
   /**
@@ -67,7 +72,8 @@ export class DishApi extends runtime.BaseAPI {
   async getDish(
     requestParameters: GetDishRequest,
     initOverrides?: RequestInit | runtime.InitOverideFunction,
-  ): Promise<void> {
-    await this.getDishRaw(requestParameters, initOverrides);
+  ): Promise<ImageResponse> {
+    const response = await this.getDishRaw(requestParameters, initOverrides);
+    return await response.value();
   }
 }

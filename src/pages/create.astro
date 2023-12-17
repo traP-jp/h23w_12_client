@@ -1,8 +1,29 @@
 ---
 import Layout from "../components/Layout.astro";
+// ここで必要なスクリプトやデータをインポート
 const dishes = [
   {
-    name: "adsfafjkfはフィオdfdfじゃkdファfdfじゃdsフォアfjdfjfjaf",
+    name: "Dish 1",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
     imageSrc:
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
@@ -22,7 +43,17 @@ const dishes = [
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
   {
-    name: "Dish 1",
+    name: "Dish 2",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
+    imageSrc:
+      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
+  },
+  {
+    name: "Dish 2",
     imageSrc:
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
@@ -42,7 +73,7 @@ const dishes = [
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
   {
-    name: "Dish 1",
+    name: "Dish 2",
     imageSrc:
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
@@ -52,7 +83,7 @@ const dishes = [
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
   {
-    name: "Dish 1",
+    name: "Dish 2",
     imageSrc:
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
@@ -61,53 +92,35 @@ const dishes = [
     imageSrc:
       "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
   },
-  {
-    name: "Dish 1",
-    imageSrc:
-      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
-  },
-  {
-    name: "Dish 2",
-    imageSrc:
-      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
-  },
-  {
-    name: "Dish 1",
-    imageSrc:
-      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
-  },
-  {
-    name: "Dish 2",
-    imageSrc:
-      "https://video.kurashiru.com/production/recipe_card_contents/image_src_file/5804908/large_image_original.jpg",
-  },
+  // ...他の料理データ
 ];
 ---
 
 <Layout>
-  <article>
-    <div class="dish-grid">
-      {
-        dishes.map((dish, index) => (
-          <div class={`dish ${index % 4 === 3 ? "last-in-row" : ""}`}>
-            <img src={dish.imageSrc} alt={dish.name} />
-            <div class="dish-name">{dish.name}</div>
-          </div>
-        ))
-      }
-    </div>
-  </article>
+  <body>
+    <div class="info-card">
+      <h4>料理について</h4>
+      <p>ここに料理の説明や他の情報を書きます。</p>
+      <div class="extra-content">
+        <p>
+          これらの美味しい料理を是非お試しください。各料理には独自のレシピと風味があります。
+        </p>
+        <a href="/looking" class="button">メニューを見る</a>
+      </div>
+      <!-- 他のコンテンツもここに追加できます -->
+    </div><!-- ...他のHTML要素 -->
+  </body>
+  <div class="dish-grid">
+    {
+      dishes.map((dish) => (
+        <div class="dish" style={`background-image: url('${dish.imageSrc}');`}>
+          <div class="dish-name">{dish.name}</div>
+        </div>
+      ))
+    }
+  </div>
 
   <style>
-    article {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 40px;
-      background-color: #ffffff; /* 記事は白背景 */
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
     body {
       font-family: "Roboto", sans-serif; /* モダンなフォントを使用 */
       background-color: #fffff0; /* 薄いオレンジ色の背景 */
@@ -116,77 +129,78 @@ const dishes = [
       padding: 0;
       box-sizing: border-box;
     }
-
     .dish-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      margin-bottom: 50px;
+      gap: 20px;
+      margin-bottom: 30px;
     }
-
     .dish {
-      height: 250px; /* `.dish` 要素の高さを固定 */
-      border-radius: 15px;
-      overflow: hidden; /* 余分なコンテンツを隠す */
-      transition: box-shadow 0.3s;
-      /* その他のスタイル */
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    .last-in-row {
-      border-right: none;
-    }
-
-    .dish img {
-      width: 100%; /* 幅をコンテナに合わせる */
-      height: 200px; /* 画像の高さを200pxに固定 */
-      object-fit: cover; /* 画像がコンテナに収まるように調整 */
-      display: block;
-      transition: transform 0.3s;
-    }
-
-    .dish:hover {
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
     .dish-name {
-      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0.5
+      ); /* 読みやすさを高めるために半透明の背景 */
+      color: white; /* テキストの色 */
+      padding: 8px;
+      margin: 0;
+      border-radius: 0 0 8px 0; /* 右下の角丸を合わせる */
+    }
+    .extra-content {
       text-align: center;
-      background-color: #ffffff;
-      font-size: 18px;
-      font-family: "Helvetica Neue", sans-serif;
-      overflow: hidden; /* 名前が長い場合にテキストを隠す */
-      text-overflow: ellipsis; /* オーバーフローしたテキストに省略記号を表示 */
-      white-space: nowrap; /* テキストを一行に保つ */
     }
-
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
     @media (max-width: 768px) {
-      .dish-name {
-        font-size: 16px; /* 小さな画面でフォントサイズを小さくする */
-        white-space: normal; /* 小さな画面ではテキストの折り返しを許可 */
-      }
-      .dish {
-        height: 200px; /* タブレットサイズでの高さ調整 */
-      }
-
-      .dish img {
-        height: 150px; /* タブレットサイズでの画像の高さ調整 */
-      }
       .dish-grid {
-        grid-template-columns: repeat(2, 1fr); /* タブレットサイズで3列に */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-
     @media (max-width: 480px) {
-      @media (max-width: 480px) .dish {
-        height: 180px; /* スマートフォンサイズでの高さ調整 */
-      }
-
-      .dish img {
-        height: 130px; /* スマートフォンサイズでの画像の高さ調整 */
-      }
       .dish-grid {
-        grid-template-columns: repeat(2, 1fr); /* スマートフォンサイズで2列に */
+        grid-template-columns: 1fr;
       }
+    }
+    body {
+      margin: 0;
+      overflow: hidden; /* スクロールを無効にする */
+    }
+    .info-card {
+      position: fixed; /* 要素を固定する */
+      bottom: 10px; /* 下からの位置 */
+      left: 10px; /* 右からの位置 */
+      background: white; /* 背景色 */
+      border-radius: 8px; /* 角丸の設定 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影をつける */
+      padding: 20px; /* 内側の余白 */
+      z-index: 1000; /* 他の要素の上に表示する */
+      width: 500px; /* 幅の設定 */
+      height: 300px; /* 高さの設定 */
+      overflow-y: auto; /* カード内の縦スクロールを有効にする */
     }
   </style>
 </Layout>

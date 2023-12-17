@@ -4,6 +4,7 @@ import {
   DefaultApi,
   DishApi,
   OauthApi,
+  RecipeApi,
 } from "../fetch-apis";
 
 const conf = new Configuration({
@@ -16,4 +17,5 @@ export const apis = {
   defa: new DefaultApi(conf),
   oauth: new OauthApi(conf),
   dish: new DishApi(conf),
+  recipe: new RecipeApi(conf),
 };

@@ -1,7 +1,9 @@
 ---
-import type { Code, Debug } from "astro:components";
 import Layout from "../components/Layout.astro";
-import { RecipePreviewMock } from "../components/RecipePreview";
+import {
+  RecipePreviewMock,
+  RecipePreviewMockV2,
+} from "../components/RecipePreview";
 
 // dictデータ
 const recipeData = {
@@ -42,6 +44,6 @@ const recipeData = {
 
 <Layout>
   <article>
-    <RecipePreviewMock {...recipeData} />
+    <RecipePreviewMock {...recipeData} client:load />
   </article>
 </Layout>

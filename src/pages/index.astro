@@ -88,17 +88,6 @@ const dishes = [
 ---
 
 <Layout>
-  <div class="input-area">
-    <h2>どんな料理を想像していますか？</h2>
-    <p>イメージを入力してください</p>
-    <input type="text" placeholder="料理名を入力" />
-    <button type="button">生成する →</button>
-  </div>
-
-  <article>
-    <DishGridMock dishes={dishes} client:load />
-  </article>
-
   <style>
     body {
       font-family: "Roboto", sans-serif; /* モダンなフォントを使用 */
@@ -173,4 +162,14 @@ const dishes = [
       border-right: none;
     }
   </style>
+  <div class="input-area">
+    <h2>どんな料理を想像していますか？</h2>
+    <p>イメージを入力してください</p>
+    <input type="text" placeholder="料理名を入力" />
+    <button type="button">生成する →</button>
+  </div>
+
+  <article>
+    <DishGridMock dishes={dishes} client:load />
+  </article>
 </Layout>

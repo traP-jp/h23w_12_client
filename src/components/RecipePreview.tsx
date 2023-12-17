@@ -60,7 +60,7 @@ export const RecipePreviewMockV2: React.FC = () => {
   return <>{val}</>;
 };
 
-export const RecipePrevie: React.FC<RecipePreviewProps> = (props) => {
+export const RecipePrevie: React.FC = () => {
   const [data, setData] = useState<RecipePreviewProps | undefined>(undefined);
   useEffect(() => {
     // 現在のURLからクエリ文字列を取得
@@ -95,33 +95,28 @@ export const RecipePrevie: React.FC<RecipePreviewProps> = (props) => {
           seasoning: res.seasoning as string[],
           instruction: res.instruction as string[],
         };
+        setData(a);
       });
   }, []);
   return (
     <React.Fragment>
-      <img src={props.src} />
-      <h1>{props.cooking_name}</h1>
-      <p>{props.comment}</p>
+      <img src={data?.src} />
+      <h1>{data?.cooking_name}</h1>
+      <p>{data?.comment}</p>
 
       <h2>材料 2人前</h2>
       <ul className={styles.ingredient_list}>
-        {props.ingredient.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
+        {data?.ingredient.map((item, i) => <li key={i}>{item}</li>)}
       </ul>
 
       <h2>調味料 2人前</h2>
       <ul className={styles.seasoning_list}>
-        {props.seasoning.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
+        {data?.seasoning.map((item, i) => <li key={i}>{item}</li>)}
       </ul>
 
       <h2>作り方</h2>
       <ol className={styles.instruction_list}>
-        {props.instruction.map((step, i) => (
-          <li key={i}>{step}</li>
-        ))}
+        {data?.instruction.map((step, i) => <li key={i}>{step}</li>)}
       </ol>
     </React.Fragment>
   );

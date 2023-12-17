@@ -3,6 +3,7 @@ import Layout from "../components/Layout.astro";
 import {
   RecipePreviewMock,
   RecipePreviewMockV2,
+  RecipePrevie,
 } from "../components/RecipePreview";
 
 // dictデータ
@@ -44,6 +45,6 @@ const recipeData = {
 
 <Layout>
   <article>
-    <RecipePreviewMock {...recipeData} client:load />
+    <RecipePrevie client:load />
   </article>
 </Layout>

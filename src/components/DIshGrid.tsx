@@ -27,7 +27,7 @@ export const DishGridMock: React.FC<{
     <div className={styles.dish_grid}>
       {dishes &&
         dishes.map((dish, i) => (
-          <a className={styles.dish} key={i} href={`/dish?id=${i}`}>
+          <a className={styles.dish} key={i} href={`/recipe?id=${i}`}>
             <MyImageMock src={dish.imageSrc} />
             <div className={styles.dish_name}>{dish.name}</div>
           </a>

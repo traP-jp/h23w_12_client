@@ -2,6 +2,14 @@ import { useState } from "react";
 import { MyImageMock } from "./MyImage";
 import styles from "../styles/DishImage.module.css";
 
+const saveQuery = (id: number) => {
+  sessionStorage.setItem("recipeId", id.toString());
+};
+
+const delQuery = () => {
+  sessionStorage.removeItem("recipeId");
+};
+
 export const DishGrid: React.FC = () => {
   const [dishes, setDishes] = useState<
     { name: string; imgSrc: string }[] | undefined
@@ -27,7 +35,14 @@ export const DishGridMock: React.FC<{
     <div className={styles.dish_grid}>
       {dishes &&
         dishes.map((dish, i) => (
-          <a className={styles.dish} key={i} href={`/recipe?id=${i}`}>
+          <a
+            className={styles.dish}
+            key={i}
+            href={`/recipe`}
+            onClick={() => {
+              saveQuery(i + 1);
+            }}
+          >
             <MyImageMock src={dish.imageSrc} />
             <div className={styles.dish_name}>{dish.name}</div>
           </a>

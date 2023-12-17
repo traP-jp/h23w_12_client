@@ -63,14 +63,7 @@ export const RecipePreviewMockV2: React.FC = () => {
 export const RecipePrevie: React.FC = () => {
   const [data, setData] = useState<RecipePreviewProps | undefined>(undefined);
   useEffect(() => {
-    // 現在のURLからクエリ文字列を取得
-    const queryString = window.location.search;
-
-    // URLSearchParamsを使用してクエリ文字列を解析
-    const urlParams = new URLSearchParams(queryString);
-
-    // 'id'クエリパラメータの値を取得
-    const recipeId = urlParams.get("id");
+    const recipeId = sessionStorage.getItem("recipeId")! || "0";
     apis.recipe
       .getRecipe({
         recipeId: parseInt(recipeId! || ""),

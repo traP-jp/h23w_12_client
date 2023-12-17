@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/RecipePreview.module.css";
 
 type RecipePreviewProps = {
@@ -40,4 +40,21 @@ export const RecipePreviewMock: React.FC<RecipePreviewProps> = (props) => {
       </ol>
     </React.Fragment>
   );
+};
+
+export const RecipePreviewMockV2: React.FC = () => {
+  const [val, setVal] = useState<string>("");
+  useEffect(() => {
+    // 現在のURLからクエリ文字列を取得
+    const queryString = window.location.search;
+
+    // URLSearchParamsを使用してクエリ文字列を解析
+    const urlParams = new URLSearchParams(queryString);
+
+    // 'id'クエリパラメータの値を取得
+    const recipeId = urlParams.get("id");
+    console.log("called", recipeId);
+    setVal(recipeId! || "");
+  }, []);
+  return <>{val}</>;
 };

@@ -2,36 +2,37 @@
 import Layout from "../components/Layout.astro";
 
 // dictデータ
-const recipeData = {
-    "cooking_name": "オーストラリアとオーストリアの間",
-    "comment": "この料理名は、オーストラリアとオーストリアの融合を感じさせます。オーストラリアの素朴で力強いフレーバーとオーストリア伝統の洗練された味わいを組み合わせた、革新的でユニークな一皿です。",
+const recipeData = 
+{
+    "name": "ボル父",
+    "comment": "ボル父父はロシアを代表する伝統的なスープで、温かみと家庭の味が感じられる一品です。寒い気候にも負けないような心温まる料理を想像しましょう。このスープは、肉や野菜の旨みが凝縮され、ビーツの鮮やかな赤色が特徴で、寒い日にピッタリの栄養豊富なメニューです。",
     "ingredient": [
-        "カンガルー肉 200g（ステーキ用）",
-        "じゃがいも 2個（細切り）",
-        "レッドビーツ 1個（スライス）",
-        "ブロッコリー 100g",
-        "オーストリア産ホワイトアスパラガス 100g",
-        "パンプキンシード 10g"
+        "ビーツ 1個（皮を剥いて千切り）",
+        "キャベツ 1/4個（細切り）",
+        "にんじん 1本（千切り）",
+        "じゃがいも 2個（乱切り）",
+        "牛肉 200g（一口大に切る）",
+        "玉ねぎ 1個（みじん切り）"
     ],
     "seasoning": [
-        "オリーブオイル 大さじ2",
-        "りんご酢 大さじ1",
-        "粒マスタード 小さじ1",
+        "野菜ブイヨン 1リットル",
+        "トマトペースト 大さじ2",
+        "砂糖 小さじ1",
+        "サワークリーム 適量",
         "塩 適量",
         "黒こしょう 適量",
-        "ドライタイム 小さじ1/2"
+        "ローリエ 2枚"
     ],
     "instruction": [
-        "カンガルー肉は塩、こしょう、ドライタイムで下味をつけておく。",
-        "じゃがいもは細切りにして、180度の油でカリカリになるまで揚げる。",
-        "ブロッコリーは塩を入れたお湯でさっと茹で、冷水に取っておく。",
-        "オリーブオイルを熱したフライパンでカンガルー肉を両面焼き、中はレアに仕上げる。",
-        "ホワイトアスパラガスは塩を入れたお湯でやわらかく茹でる。",
-        "皿に揚げたじゃがいもを敷き、上にスライスしたレッドビーツ、やわらかく茹でたブロッコリー、ホワイトアスパラガスを配置する。",
-        "最後に焼いたカンガルー肉をスライスして野菜の上に盛り、りんご酢と粒マスタードを混ぜたドレッシングをかけて、パンプキンシードを散らす。"
+        "鍋にサラダ油を熱し、牛肉を炒めて取り出す。",
+        "同じ鍋に玉ねぎを炒め、透明になったらビーツ、にんじん、じゃがいもを加えて炒める。",
+        "トマトペースト、砂糖、塩、黒こしょうを加えてさらに炒める。",
+        "肉を戻し入れて全体を混ぜ、野菜ブイヨンを注ぎ、ローリエを加える。",
+        "中火で野菜が柔らかくなるまで煮込み、最後にキャベツを加えてさらに煮込む。",
+        "器に盛り付けた後、サワークリームを上から添えて完成。"
     ],
     "detailed_description": [
-        "A dish that combines Australian vitality with Austrian elegance, presenting a rare kangaroo steak at its center, adorned with deep-fried julienne potatoes, vibrant red beet slices, blanched broccoli, and tender white Austrian asparagus. The plate is dressed with an apple cider vinegar and grain mustard dressing, and sprinkled with crunchy pumpkin seeds to add texture. This represents a cross-cultural culinary experience, served on a sleek, minimalist plate that echoes the sophistication of Austria, while the bold flavors pay homage to the Australian outback."
+        "A traditional Russian Borscht, served hot for two. The soup boasts of a vibrant red hue from the beetroot, complemented by the earthy colors of carrots and the soft tones of potatoes and cabbage. Tender chunks of beef add richness to the dish. It is presented in a rustic, deep bowl, with a dollop of sour cream gracefully swirled on top. The scene evokes a homely feel, set against the backdrop of a warmly lit wooden table, inviting a sense of comfort during the cold weather."
     ]
 };
 ---
@@ -129,7 +130,7 @@ const recipeData = {
         article img {
           display: block;
           margin: 0 auto;
-          max-width: 100%;
+          max-width: 50%;
           height: auto;
           border-radius: 4px;
         }
@@ -155,8 +156,8 @@ const recipeData = {
       
       
     <article>
-        <img src=https://th.bing.com/th/id/OIP.X6BuDJTMU_vFDTWD9p-HiAHaHa?rs=1&pid=ImgDetMain />
-        <h1>{recipeData.cooking_name}</h1>
+        <img src=https://angry-vanadium-ceb.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F488ae9e4-91fb-44da-b02a-428688e6feaa%2Fc281e764-56ea-405b-abb0-e87f4210664d%2Frecipe20.jpg?table=block&id=73dc0263-f966-4c11-818b-614b23a48bd2&spaceId=488ae9e4-91fb-44da-b02a-428688e6feaa&width=2000&userId=&cache=v2/>
+        <h1>{recipeData.name}</h1>
         <p>{recipeData.comment}</p>
       
         <h2>材料 2人前</h2>

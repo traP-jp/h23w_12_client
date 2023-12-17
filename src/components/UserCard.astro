@@ -3,12 +3,13 @@
 ---
 
 <script>
+  import type { GetPingResponce } from "../fetch-apis";
   import { apis } from "../utils/apis.ts";
   import { wrapOAuth } from "../utils/oauth";
   apis.defa
     .getPing()
-    .then((res) => console.log("fromt then\n:", res))
-    .catch((e) => console.log(e));
+    .then((res: GetPingResponce) => console.log("fromt then\n:", res))
+    .catch((e: any) => console.log(e));
 
   // apis.oauth
   //   .getOauthMe()

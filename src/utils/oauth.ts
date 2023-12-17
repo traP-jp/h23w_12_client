@@ -4,7 +4,7 @@ import {
   type InitOverideFunction,
 } from "../fetch-apis/runtime.ts";
 
-export const wrapOAuth = <T>(
+export const wrapOAuth = async <T>(
   fetchRes: Promise<T>,
   isLog?: boolean,
 ): Promise<T | undefined> => {

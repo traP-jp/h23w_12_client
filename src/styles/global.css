@@ -1,0 +1,98 @@
+/* 共通のベーススタイル */
+body {
+  font-family: "Roboto", sans-serif; /* モダンなフォントを使用 */
+  background-color: #fffff0; /* 薄いオレンジ色の背景 */
+  color: #333; /* 濃い文字色 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*共通のフォームスタイル*/
+form {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*共通のラベルスタイル*/
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* 共通のテキスト入力スタイル */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 共通のボタンスタイル */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* 共通の記事スタイル */
+article {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #ffffff; /* 記事は白背景 */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 共通の見出しスタイル */
+h1,
+h2 {
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 共通のパラグラフスタイル */
+p {
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* 共通のリストスタイル */
+ul,
+ol {
+  margin-bottom: 20px;
+}
+
+/* 共通の画像スタイル */
+article img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}

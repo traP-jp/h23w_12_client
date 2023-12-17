@@ -20,8 +20,8 @@ export const RecipePreviewMock: React.FC<RecipePreviewProps> = (props) => {
 
       <h2>材料 2人前</h2>
       <ul className={styles.ingredient_list}>
-        {props.ingredient.map((item) => (
-          <li>{item}</li>
+        {props.ingredient.map((item, i) => (
+          <li key={i}>{item}</li>
         ))}
       </ul>
 

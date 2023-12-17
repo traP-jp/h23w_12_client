@@ -1,0 +1,18 @@
+.ingredient_list li,
+.seasoning_list li,
+.instruction_list li {
+   border-bottom: 1px solid #ccc;
+   padding: 8px 0;
+}
+
+/* 最後のリストアイテムにボーダー非表示 */
+.ingredient_list li:last-child,
+.seasoning_list li:last-child,
+.instruction_list li:last-child {
+   border-bottom: none;
+}
+
+/* 手順番号（マーカー）のスタイルを太文字に */
+.instruction_list li::marker {
+   font-weight: bold;
+}
